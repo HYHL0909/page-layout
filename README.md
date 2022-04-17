@@ -257,3 +257,48 @@ js onclick事件闪一下又变回去问题解决
 
 
 
+### 原生js实现JD首页
+
+![image-20220417205445992](https://raw.githubusercontent.com/HYHL0909/images/main/202204172054122.png)
+
+网页基本骨架搭建
+
+![image-20220417225021956](https://raw.githubusercontent.com/HYHL0909/images/main/202204172250296.png)
+
+
+
+布局：
+
+container
+
+- nav
+  - ul
+    - li
+
+- header
+  - logo-box
+    - a
+      - img
+  - search-box
+    - search-bar
+      - input
+      - button
+      - button
+    - ul
+      - li
+
+- content
+
+  - wrapper
+
+    - menu-box
+    - slider-box
+    - ad-box
+    - info-box
+
+  - wrapper
+
+    
+
+    
+
