@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            overflow: hidden;
+            width: 600px;
+            height: 400px;
+            position: relative;
+            margin: auto;
+        }
+
+        .container:hover .arrow {
+            display: block;
+        }
+
+        .list {
+            position: absolute;
+            width: 4200px;
+            height: 400px;
+            z-index: 1;
+
+        }
+
+        .list img {
+            float: left;
+        }
+
+        .button {
+            position: absolute;
+            z-index: 2;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .button span {
+            width: 10px;
+            height: 10px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            background: #333;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .button .on {
+            background-color: orangered;
+        }
+
+        .arrow {
+            display: none;
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-decoration: none;
+            font-size: 36px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            background-color: RGBA(0, 0, 0, .3);
+        }
+
+        .arrow:hover {
+            background-color: RGBA(0, 0, 0, .7);
+        }
+
+        #next {
+            right: 20px;
+        }
+
+        #prev {
+            left: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let container = document.querySelector('.container');
+            let list = document.querySelector('.list');
+            let prev = document.querySelector('#prev');
+            let next = document.querySelector('#next');
+            let buttons = document.querySelectorAll('span');
+            let index = 0;
+            let animated = false;
+            const IMG_WIDTH = 600;
+            const IMG_NUM = 5;
+
+            for (let button of buttons) {
+                button.onclick = function () {
+                    let imgIndex = +button.getAttribute('index');
+                    list.style.left = -(imgIndex + 1) * IMG_WIDTH + "px";
+                    index = imgIndex;
+                    showButton();
+                }
+            }
+
+            function play() {
+                timer = setInterval(() => next.onclick(), 2000);
+            }
+
+            function stop() {
+                clearInterval(timer);
+            }
+            play();
+            container.onmouseout = function () {
+                play();
+            }
+            container.onmouseover = function () {
+                stop();
+            }
+
+
+
+            next.onclick = function () {
+                index++;
+                index = index % IMG_NUM;
+                showButton();
+                if (!animated) {
+                    animate(-IMG_WIDTH);
+                }
+
+            }
+
+            prev.onclick = function () {
+                index--;
+                if (index < 0) {
+                    index = index + IMG_NUM;
+                }
+                showButton();
+                if (!animated) {
+                    animate(IMG_WIDTH);
+                }
+
+            }
+
+
+            function showButton() {
+                for (let i = 0; i < buttons.length; i++) {
+                    if (buttons[i].className == "on") {
+                        buttons[i].className = "";
+                        break;
+                    }
+                }
+                buttons[index].className = "on";
+            }
+
+            function animate(offset) {
+                animated = true;
+                let newLeft = parseInt(list.style.left) + offset;
+                let time = 300; //位移总时间
+                let interval = 10; //位移间隔时间
+                let speed = offset / (time / interval); //每次移动的距离，一共移动的次数。
+
+                go();
+
+                function go() {
+                    if ((speed < 0 && parseInt(list.style.left) > newLeft) || (speed > 0 && parseInt(list.style.left
+                    ) < newLeft)) {
+                        list.style.left = parseInt(list.style.left) + speed + 'px';
+                        setTimeout(go, interval);
+                    }
+                    else {
+                        animated = false;
+                        list.style.left = newLeft + "px";
+                        if (newLeft < -IMG_NUM * IMG_WIDTH) {
+                            list.style.left = "-600px";
+                        }
+                        if (newLeft > -IMG_WIDTH) {
+                            list.style.left = "-3000px";
+                        }
+                    }
+                }
+
+
+
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="list" style="
+        left:-600px">
+            <img src="../img/5.jpg" alt="">
+            <img src="../img/1.jpg" alt="">
+            <img src="../img/2.jpg" alt="">
+            <img src="../img/3.jpg" alt="">
+            <img src="../img/4.jpg" alt="">
+            <img src="../img/5.jpg" alt="">
+            <img src="../img/1.jpg" alt="">
+        </div>
+        <div class="button">
+            <span index="0" class="on"></span>
+            <span index="1"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
+        </div>
+        <a href="javascript:;" class="arrow" id="prev">&lt;</a>
+        <a href="javascript:;" class="arrow" id="next">&gt;</a>
+    </div>
+</body>
+
+</html>
