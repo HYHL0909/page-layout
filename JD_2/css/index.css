@@ -5,7 +5,7 @@
 }
 .nav-box {
     margin:0 auto;
-    width: 960px;
+    width: 778px;
     text-align:right;
 }
 
@@ -22,9 +22,6 @@
     border-right:none;
 }
 
-
-
-
 .nav ul li a{
     text-decoration: none;
     color: #999999;
@@ -32,4 +29,100 @@
 
 .nav-box ul li a:hover{
     color:#f10215;
+}
+
+.header-box{
+    width: 100%;
+    height: 140px;
+    background:#ffffff;
+}
+
+.header{
+    width:990px;
+    display: flex;
+    margin:0 auto;
+    padding:10px 0;
+}
+
+.header .logo-box{
+    width:190px;
+    height:120px;
+    overflow: hidden;
+}
+
+.header .logo-box img{
+    width:100%;
+    height:100%;
+}
+
+.header .search-box{
+    width: 790px;
+    height:120px;
+    position: relative;
+}
+
+.header .search-bar {
+    padding:10px 0 0 50px;
+    display: flex;
+
+}
+.header .recommend{
+    padding:5px 0 15px 50px; 
+    font-size:12px;
+   
+}
+
+.search-box .recommend a{
+    color:#999999;
+}
+
+.header .search-bar input{
+    width:430px;
+    height:32px;
+    border:1.5px solid #f10215;
+    padding:2px 15px;
+    outline: none;
+}
+
+.header .search-bar .search-btn{
+    width:58px;
+    height:39px;
+    background-color: #f10215;
+    border:1.5px solid #f10215;
+    cursor:pointer;
+    color:#fff;
+    font-weight: bold;
+}
+
+.search-box .search-bar .search-btn span{
+    font-size:24px;
+}
+
+.search-box .cart-btn{
+    margin-left:20px;
+    color:#f10215;
+    background-color: #fff;
+    border:0.5px solid #ddd;
+    border-radius:2px;
+    height: 39px;
+    padding-bottom: 8px;
+}
+
+.search-box .cart-btn span{
+    font-size:24px;
+    font-weight:bold;
+    margin-right:5px;
+}
+.search-box li{
+    display: inline-block;
+    margin-right: 10px;
+}
+.search-box .hot-words{
+    position: absolute;
+    bottom: 0px;
+    left:50px;
+    font-size:16px;
+}
+.search-box .hot-words a{
+    color:#333;
 }

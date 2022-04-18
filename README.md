@@ -347,3 +347,58 @@ li是块标签，想要让它排一列，我们设置它为inline-block，设置
 }
 ~~~
 
+
+
+头部：
+
+<img src="https://raw.githubusercontent.com/HYHL0909/images/main/202204181111906.png" alt="image-20220418111101073" style="zoom:150%;" />
+
+- header-box
+
+  - header
+
+    - logo-box
+
+      - a
+        - img
+
+    - search-box
+
+      - search-bar
+        - input
+        - button
+        - button
+      - recommend
+      - hot-words
+
+      
+
+header：
+
+- 用flex布局：让logo-box和search-box在一行。
+
+- 要居中。margin：0 auto
+
+logo-box：
+
+让图片撑满的办法：
+
+- 首先设置logo-box overflow:hidden,将溢出盒子的藏起来。
+
+- 然后设置图片宽度为100%
+
+  
+
+search-box：relative
+
+hot-word:absolute，使用bottom ，right进行定位。
+
+
+
+search-bar：
+
+display：flex；然后子组件之间的距离用padding或者margin显示。
+
+input：
+
+- outline：none
