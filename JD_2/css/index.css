@@ -1,0 +1,35 @@
+.nav {
+    height:30px;
+    background: #e3e4e5;
+    border-bottom:1px solid #ddd;
+}
+.nav-box {
+    margin:0 auto;
+    width: 960px;
+    text-align:right;
+}
+
+.nav ul li {
+    display: inline-block;
+    border-right:1.5px solid #999999;
+    padding: 0px 10px;
+    font-size:12px;
+    height: 16px;
+    line-height: 16px;
+    margin:7px auto;
+}
+.nav ul li:last-child{
+    border-right:none;
+}
+
+
+
+
+.nav ul li a{
+    text-decoration: none;
+    color: #999999;
+}
+
+.nav-box ul li a:hover{
+    color:#f10215;
+}

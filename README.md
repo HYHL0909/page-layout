@@ -302,3 +302,48 @@ container
 
     
 
+实现导航栏
+
+![image-20220418002401091](https://raw.githubusercontent.com/HYHL0909/images/main/202204180024454.png)
+
+想要让文字的固定在一块里，因此我们添加一个nav-box容器。
+
+想要nav-box容器居中，我们可以使用 margin：0 auto，实现左右居中。
+
+li是块标签，想要让它排一列，我们设置它为inline-block，设置成inline 我们就没有办法设置高度。设置成inline-block，然后给它设置border-right，让它右边出现小竖线。小竖线的高度就是height的高度，如果觉得太长就把height调低，此时通过上下添加margin，让li居中。
+
+~~~css
+.nav ul li {
+    display: inline-block;
+    border-right:1.5px solid #999999;
+    padding: 0px 10px;
+    font-size:12px;
+    height: 16px;
+    line-height: 16px;
+    margin:7px auto;
+}
+.nav ul li:last-child{
+    border-right:none;
+}
+~~~
+
+设置小竖线方法二：使用伪元素，这样就可以让li的高度与容器高度一致，伪元素单独设置高度。
+
+~~~css
+.nav ul li {
+    display: inline-block;
+    padding: 0px 5px;
+    font-size:12px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.nav ul li:not(:last-child)::after{
+    content:"|";
+    height:14px;
+    color:#999999;
+    margin-left:10px;
+
+}
+~~~
+
