@@ -401,4 +401,32 @@ display：flex；然后子组件之间的距离用padding或者margin显示。
 
 input：
 
-- outline：none
+- outline：none，就是不要选中的时候外边有个发光
+
+
+
+![image-20220423121531990](C:/Users/Elvira/AppData/Roaming/Typora/typora-user-images/image-20220423121531990.png)
+
+
+
+ul  topmenu
+
+- li
+
+  - a 
+
+  - div  submenu
+
+    - div  left
+
+      - dl
+        - dt
+        - dd
+
+    - right（ad box）
+
+      
+
+      
+
+    
